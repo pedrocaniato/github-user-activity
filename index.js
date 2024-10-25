@@ -42,6 +42,7 @@ function displayActivity(data) {
                 break  
             case "ForkEvent":
                 reposStats[repoName].fork += 1
+                break
         }
     });
 

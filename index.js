@@ -1,6 +1,9 @@
 const username = process.argv[2];
 
 async function fetchData(username) {
+    if(!username){
+        return []
+    }
     try {
         const res = await fetch(`https://api.github.com/users/${username}/events`);
         const data = await res.json();
@@ -82,3 +85,7 @@ if (username) {
 } else {
     console.log("INFORME UM USUARIO");
 }
+
+fetchData(username).then(data => {
+    displayActivity(data); 
+});
